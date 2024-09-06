@@ -1,1 +1,1 @@
-# tips-and-tricks
+# Tips and Tricks for DevOps
