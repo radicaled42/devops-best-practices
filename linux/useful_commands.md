@@ -73,134 +73,73 @@
 - ssh -p [port] user@host: 
 - telnet host: 
 
-Disk Usage
+## Disk Usage
+
+- df -h: show free and used space on mounted systems
+- df -i: show free inodes on mounted filesystems
+- fdisk -l: show disk partitions, sizes, and types
+- du -ah: show disk usage for all files and directory
+- du -sh: show disk usage of current directory
+- findmnt: show target mount point for all filesystems
+- mount [device_path] [mount_point]: mount a device
+
 Keyboard Shortcuts
+
+- Ctrl + C: kill current process running in the terminal
+- Ctrl + Z: stop current process (can be resumed in the foreground with fg or in the background with bg)
+- Ctrl + W: cut one word before the cursor and add it to clipboard
+- Ctrl + U: cut part of the line before the cursor and add it to clipboard
+- Ctrl + K: cut part of the line after the cursor and add it to clipboard
+- Ctrl + Y: paste from clipboard
+- Ctrl + R: recall last command that matches the provided characters
+- Ctrl + O: run the previously recalled command
+- Ctrl + G: exit command history without running a command
+- !!: repeat the last command
+- exit: log out of current session
+
 System Information
+
+- uname -r: show system information
+- uname -a: show kernel release information
+- uptime: show how long the system has been running, including load average
+- hostname: show system hostname
+- hostname -i: show the IP address of the system
+- last reboot: show system reboot history
+- date: show current time and date
+- timedatectl: query and change the system clock
+- cal: show current calender month and day
+- w: show logged in users in the system
+- whoami: show user you are using
+- finger [username]: show information about a user
+
 Network
 Process Related
+
+- ps: show a snapshot of active processes
+- pstree: show processes as a tree
+
+- pmap: shows a memory usage map of processes
+
+- top: show all running processes
+
+- kill [process_id]: kill a process under a given ID
+- pkill [proc_name]: kill a process under the specified name
+- killall [proc_name]: kill all processes labelled proc
+- bg: list and resume stopped jobs in the background
+- fg: bring the most recent suspended job to the foreground
+- fg [job]: bring a particular job to the foreground
+- lsof: list files opened by processes
+
 File Permission
 Package Installation
 File Compression
 
+- tar cf [compressed_file.tar] [file_name]: 
+- tar xf [compressed_file. tar]: 
+- tar czf [compressed_file.tar.gz]: 
+- gzip [file_name]: 
 
 
-
-
-
-show free and used space on
-mounted systems
-show free inodes on mounted
-filesystems
-show disk partitions, sizes, and
-types
-show disk usage for all files and
-directory
-show disk usage of current
-directory
-show target mount point for all
-filesystems
-mount a device
-df -h
-df -i
-fdisk -l
-du -ah
-du -sh
-findmnt
-mount [device_path]
-[mount_point]
-tar cf [compressed_file.
-tar] [file_name]
-tar xf [compressed_file.
-tar]
-tar czf
-[compressed_file.tar.gz]
-gzip [file_name]
-uname -r
-uname -a
-uptime
-hostname
-hostname -i
-last reboot
-date
-timedatectl
-cal
-w
-whoami
-finger
-[username]
-show system information
-show kernel release information
-show how long the system has been
-running, including load average
-show system hostname
-show the IP address of the system
-show system reboot history
-show current time and date
-query and change the system clock
-show current calender month and
-day
-show logged in users in the system
-show user you are using
-show information about a user
-Ctrl + C
-Ctrl + Z
-Ctrl + W
-Ctrl + U
-Ctrl + K
-Ctrl + Y
-Ctrl + R
-Ctrl + O
-Ctrl + G
-!!
-exit
-kill current process running in the
-terminal
-stop current process (can be
-resumed in the foreground with fg
-or in the background with bg)
-cut one word before the cursor and
-add it to clipboard
-cut part of the line before the
-cursor and add it to clipboard
-cut part of the line after the cursor
-and add it to clipboard
-paste from clipboard
-recall last command that matches
-the provided characters
-run the previously recalled
-command
-exit command history without
-running a command
-repeat the last command
-log out of current session
-ps
-pstree
-pmap
-top
-kill [process_id]
-pkill [proc_name]
-killall [proc_name]
-bg
-fg
-fg [job]
-lsof
-show a snapshot of active
-processes
-show processes as a tree
-shows a memory usage map of
-processes
-show all running processes
-kill a process under a given ID
-kill a process under the specified
-name
-kill all processes labelled proc
-list and resume stopped jobs in
-the background
-bring the most recent suspended
-job to the foreground
-bring a particular job to the
-foreground
-list files opened by processes
 create an archived file from a file
 extract archived file
 create a gzip compressed tar file
