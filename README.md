@@ -1,4 +1,4 @@
-# Tips and Tricks for DevOps
+# DevOps tips and best practices
 
 ## Docker
 
