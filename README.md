@@ -8,6 +8,9 @@
 
 ## Kubernetes
 
+- [best practices](./kubernetes/best_practices.md)
+- [troubleshoot a deployment](./kubernetes/troubleshooting_deployments.md)
+
 ## Github CI/CD
 
 - CI/CD
