@@ -1,41 +1,43 @@
-# Scale to zero a AWS Cluster
+# Scale to Zero an AWS EKS Cluster
 
-Actually its not possible to scale to zero an EKS (AWS Kubernetes Cluster) given that the master nodes are manage by AWS.
-What you can do is to scale to zero the nodegroups.
+Scaling the master nodes of an EKS (AWS Kubernetes Cluster) to zero is not possible, as these nodes are managed by AWS. However, you can scale the worker node groups to zero, effectively minimizing the resource usage of your cluster.
 
-## Manually scale to zero a cluster
+## Manually Scale to Zero a Cluster
 
-1. Install AWS Cli (https://aws.amazon.com/cli/)
-2. Install EKSCTL (https://eksctl.io/)
-3. Login to you AWS account, by using a profile or a AWS environment variables
-4. Run the following command:
-
-```
-eksctl scale nodegroup --cluster=<CLUSTER_NAME> --nodes=0 --name=<NODEGROUP_NAME> --nodes-min=0 --nodes-max=1
-```
-5. Repeat with any number of nodes you have
-6. To scale up the cluster run the following command.
+1. Install AWS CLI: Download and install the AWS CLI tool from [here](https://aws.amazon.com/cli/).
+2. Install eksctl: Download and install eksctl from [here](https://eksctl.io/).
+3. Log in to your AWS account using a profile or AWS environment variables.
+4. Run the following command for each nodegroup in your cluster:
 
 ```
-eksctl scale nodegroup --cluster=<CLUSTER_NAME> --nodes=<NUMBER_OF_NODES > 0> --name=<NODEGROUP_NAME> --nodes-min=0 --nodes-max=<NUMBER_OF_NODES >= nodes>
+    eksctl scale nodegroup --cluster=<CLUSTER_NAME> --nodes=0 --name=<NODEGROUP_NAME> --nodes-min=0 --nodes-max=1
 ```
-   
-**Note**: make sure the nodes are tainted, otherwise the pods will migrate to other nodegroups.
 
-## Scale to zero a cluster using a github action
-
-A github action will follow the same principle as doing it manually.  
-In this example I set up a cron based stop/start of an EKS nodegroup.
-
-You will need the following:
-1. Set up an IAM user with no console access and only access to EKS
-2. Configure the ACCESS_KEY, SECRET_ACCESS_KEY and AWS_REGION secret variables on github
-   1. Navigate to your repo setting
-   2. Select `Secrets and variables`
-   3. Select `Actions`
-   4. Create `New repository secrets` with each of the variables
+5. Repeat the command for each additional nodegroup you have.
+6. To scale up the cluster, run the following command:
 
 ```
+    eksctl scale nodegroup --cluster=<CLUSTER_NAME> --nodes=<NUMBER_OF_NODES> --name=<NODEGROUP_NAME> --nodes-min=0 --nodes-max=<NUMBER_OF_NODES>
+```
+
+**Note**: Ensure the nodes are tainted (marked as unschedulable) before scaling down, to prevent pods from automatically migrating to other node groups. If the nodes are not tainted, workloads may move unexpectedly.
+
+## Scale to Zero a Cluster Using a GitHub Action
+
+A GitHub action can automate the process of scaling your EKS nodegroups to zero, based on a cron schedule. Here’s an example of setting up a cron-based stop/start for an EKS nodegroup.
+
+### Requirements:
+
+1. Set up an IAM user with no console access and only the necessary permissions to manage EKS.
+2. Configure the ACCESS_KEY, SECRET_ACCESS_KEY, and AWS_REGION secret variables in GitHub:
+    1. Navigate to your repository settings.
+    2. Select Secrets and variables.
+    3. Select Actions.
+    4. Create New repository secrets for each of the variables.
+
+### GitHub Action Example:
+
+```yaml
 name: Cron-Based EKS Control
 on:
   schedule:
@@ -58,41 +60,36 @@ jobs:
       - name: Install and configure kubectl
         run: |
           VERSION=$(curl --silent https://storage.googleapis.com/kubernetes-release/release/stable.txt)
-          curl https://storage.googleapis.com/kubernetes-release/release/$VERSION/bin/linux/amd64/kubectl \
-            --progress-bar \
-            --location \
-            --remote-name
+          curl https://storage.googleapis.com/kubernetes-release/release/$VERSION/bin/linux/amd64/kubectl --progress-bar --location --remote-name
           chmod +x kubectl
           sudo mv kubectl /usr/local/bin/
           aws eks update-kubeconfig --region ${{ secrets.AWS_REGION }} --name <CLUSTER_NAME>
 
       - name: Install EKSCTL
         run: |
-          # for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`
+          # for ARM systems, set ARCH to: `arm64`, `armv6`, or `armv7`
           ARCH=amd64
           PLATFORM=$(uname -s)_$ARCH
           curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"
           tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp && rm eksctl_$PLATFORM.tar.gz
           sudo mv /tmp/eksctl /usr/local/bin
 
-      - name: Trigger Step to Shutdown cluster
+      - name: Trigger Step to Shutdown Cluster
         if: github.event.schedule == '0 5 * * 1-6'
         run: |
-          echo "This step will be run on during the shutdown"
+          echo "Scaling nodegroup down to zero nodes"
           eksctl scale nodegroup --cluster=<CLUSTER_NAME> --nodes=0 --name=<NODEGROUP_NAME> --nodes-min=0 --nodes-max=1
-          ...
 
       - name: Trigger Step to Start Up Cluster
         if: github.event.schedule == '0 11 * * 1-5'
         run: |
-          echo "This step will be run during the startup"
-          eksctl scale nodegroup --cluster=<CLUSTER_NAME> --nodes=<NUMBER_OF_NODES > 0> --name=<NODEGROUP_NAME> --nodes-min=0 --nodes-max=<NUMBER_OF_NODES >= nodes>
-          ...
+          echo "Scaling nodegroup up to the desired number of nodes"
+          eksctl scale nodegroup --cluster=<CLUSTER_NAME> --nodes=<NUMBER_OF_NODES> --name=<NODEGROUP_NAME> --nodes-min=0 --nodes-max=<NUMBER_OF_NODES>
 ```
 
-If you don't want to provide full access EKS Control user, you can use the following policy:
+If you don't want to provide full access to the EKS Control user, use the following IAM policy:
 
-```
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -112,7 +109,6 @@ If you don't want to provide full access EKS Control user, you can use the follo
             "Effect": "Allow",
             "Resource": [
                 "arn:aws:eks:us-east-2:223007967604:cluster/<CLUSTER_NAME>",
-                "arn:aws:eks:us-east-2:223007967604:cluster/<CLUSTER_NAME>/<NODEGROUP_NAME>/*",
                 "arn:aws:eks:us-east-2:223007967604:nodegroup/<CLUSTER_NAME>/<NODEGROUP_NAME>/*"
             ]
         },
@@ -175,5 +171,6 @@ If you don't want to provide full access EKS Control user, you can use the follo
     ]
 }
 ```
+
 
 By radicaled42
