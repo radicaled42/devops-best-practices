@@ -68,10 +68,10 @@
 
 ## SSH Login
 
-- ssh user@host: 
-- ssh host: 
-- ssh -p [port] user@host: 
-- telnet host: 
+- ssh user@host: connect to host as user
+- ssh host: securely connect to host via SSH default port 22
+- ssh -p [port] user@host: connect to host using a particular port
+- telnet host: connect to host via telnet default port 23
 
 ## Disk Usage
 
@@ -83,7 +83,7 @@
 - findmnt: show target mount point for all filesystems
 - mount [device_path] [mount_point]: mount a device
 
-Keyboard Shortcuts
+## Keyboard Shortcuts
 
 - Ctrl + C: kill current process running in the terminal
 - Ctrl + Z: stop current process (can be resumed in the foreground with fg or in the background with bg)
@@ -97,7 +97,7 @@ Keyboard Shortcuts
 - !!: repeat the last command
 - exit: log out of current session
 
-System Information
+## System Information
 
 - uname -r: show system information
 - uname -a: show kernel release information
@@ -112,16 +112,27 @@ System Information
 - whoami: show user you are using
 - finger [username]: show information about a user
 
-Network
-Process Related
+## Network
+
+- ip addr show: show IP addresses and network interfaces
+- ip address add [IP_address]: assign an IP address to interface eth0
+- ifconfig: show IP addresses of all network interfaces
+- netstat -pnltu: show active (listening) ports
+- netstat -nutlp: show tcp and udp ports and their programs
+- whois [domain]: show more information about a domain
+- dig [domain]: show DNS information about a domain
+- dig -x host: reverse lookup on domain
+- dig -x [ip_address]: reverse lookup of an IP address
+- host [domain]: do an IP lookup for a domain
+- hostname -I: show the local IP address
+- wget [file_name]: download a file from a domain
+
+## Process Related
 
 - ps: show a snapshot of active processes
 - pstree: show processes as a tree
-
 - pmap: shows a memory usage map of processes
-
 - top: show all running processes
-
 - kill [process_id]: kill a process under a given ID
 - pkill [proc_name]: kill a process under the specified name
 - killall [proc_name]: kill all processes labelled proc
@@ -130,108 +141,32 @@ Process Related
 - fg [job]: bring a particular job to the foreground
 - lsof: list files opened by processes
 
-File Permission
-Package Installation
-File Compression
+## File Permission
 
-- tar cf [compressed_file.tar] [file_name]: 
-- tar xf [compressed_file. tar]: 
-- tar czf [compressed_file.tar.gz]: 
-- gzip [file_name]: 
+- chmod 777 [file_name]: give read, write, and execute permission to everyone
+- chmod 755 [file_name]: give full permission to owner, and read and execute permission to group and others 
+- chmod 766 [file_name]: give full permission to owner, and read and write permission to group and others
+- chown [user] [file_name]: change the file ownership
+- chown [user]: [group] [file_name]: change the owner and group ownership of a file 
+
+## Package Installation
+
+- yum search [keyword]: find a package by a related keyword
+- yum info [package_name]: show package information and summary
+- yum install [package_name.rpm]: install a package using the YUM package manager
+- dnf install [package_name.rpm]: install a package using the DNF package manager
+- rpm -i [package_name.rpm]: install an rpm package from a local file
+- rpm -e [package_name.rpm]: remove an rpm package
+- tar zxvf [source_code.tar.gz] && cd [source_code] && ./configure && make && make && install: install software from source code
+
+## File Compression
+
+- tar cf [compressed_file.tar] [file_name]: create an archived file from a file
+- tar xf [compressed_file. tar]: extract archived file
+- tar czf [compressed_file.tar.gz]: create a gzip compressed tar file
+- gzip [file_name]: compress a file with the .gz extension
 
 
-create an archived file from a file
-extract archived file
-create a gzip compressed tar file
-compress a file with the .gz
-extension
-find a package by a related
-keyword
-show package information and
-summary
-install a package using the YUM
-package manager
-install a package using the DNF
-package manager
-install an rpm package from a local
-file
-remove an rpm package
-install software from source code
-yum search
-[keyword]
-yum info
-[package_name]
-yum install
-[package_name.
-rpm]
-dnf install
-[package_name.
-rpm]
-rpm -i
-[package_name.
-rpm]
-rpm -e
-[package_name.
-rpm]
-tar zxvf
-[source_code.tar.gz]
-cd [source_code]
-./configure
-make
-make install
-ip addr show
-ip address add
-[IP_address]
-ifconfig
-netstat -pnltu
-netstat -nutlp
-whois [domain]
-dig [domain]
-dig -x host
-dig -x
-[ip_address]
-host [domain]
-hostname -I
-wget [file_name]
-show IP addresses and network
-interfaces
-assign an IP address to interface
-eth0
-show IP addresses of all network
-interfaces
-show active (listening) ports
-show tcp and udp ports and their
-programs
-show more information about a
-domain
-show DNS information about a
-domain
-reverse lookup on domain
-reverse lookup of an IP address
-do an IP lookup for a domain
-show the local IP address
-download a file from a domain
-chmod 777 [file_name]
-chmod 755 [file_name]
-chmod 766 [file_name]
-chown [user]
-[file_name]
-chown [user]: [group]
-[file_name]
-give read, write, and execute
-permission to everyone
-give full permission to owner, and
-read and execute permission to
-group and others
-give full permission to owner, and
-read and write permission to
-group and others
-change the file ownership
-change the owner and group
-ownership of a fileconnect to host as user
-securely connect to host via SSH
-default port 22
-connect to host using a particular
-port
-connect to host via telnet default
-port 23
+### Bibliography
+
+- https://ns2.elhacker.net/cheat-sheet/linux-commands-cheat-sheet-by-pnap.pdf
