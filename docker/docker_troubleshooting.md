@@ -1,6 +1,4 @@
-# Docker
-
-## Docker Troubleshooting
+# Docker Troubleshooting
 
 1. Check Container Status
 Use `docker ps -a` to view all containers and their statuses. A container may have exited unexpectedly. 
