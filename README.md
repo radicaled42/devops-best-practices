@@ -6,21 +6,23 @@ This repository is a collection of essential tips, troubleshooting guides, and b
 
 Explore best practices, troubleshooting techniques, and detailed Dockerfile instructions to optimize your containerized applications.
 
-- [docker troubleshooting](./docker/docker_troubleshooting.md)
-- [best practices](./docker/docker_best_practices.md)
-- [dockerfile instructions](./docker/dockerfile_instructions.md)
+- [Docker Troubleshooting](./docker/docker_troubleshooting.md)
+- [Best Practices](./docker/docker_best_practices.md)
+- [Dockerfile Instructions](./docker/dockerfile_instructions.md)
 
 ## Kubernetes
 
 Gain insights into best practices for Kubernetes, along with troubleshooting tips to handle deployment issues effectively.
 
-- [best practices](./kubernetes/best_practices.md)
-- [troubleshoot a deployment](./kubernetes/troubleshooting_deployments.md)
+- [Kubernetes Components](./kubernetes/kubernetes_components.md)
+- [Best Practices](./kubernetes/best_practices.md)
+- [Troubleshoot a deployment](./kubernetes/troubleshooting_deployments.md)
 
 ## Github CI/CD
 
 Learn how to implement continuous integration and continuous deployment (CI/CD) workflows using GitHub Actions.
 
+- [Git Commands](./github/git_commands.md)
 - [CI/CD](./github/cicd.md)
 
 ## Linux
