@@ -33,6 +33,10 @@ Discover a range of useful Linux commands that can help improve your efficiency 
 
 - [Useful commands](./linux/useful_commands.md)
 
+## Misc
+
+- [SDLC](./AWS/sdlc.md)
+
 ----
 ----
 
