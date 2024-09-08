@@ -1,129 +1,143 @@
-# Git Commands
+# **Git Commands Cheat Sheet**
 
-## Git Config
+Git is a powerful version control system used to track changes in your code, collaborate with others, and manage your project's history. Below is a collection of common Git commands, organized by category, along with examples to help you get started.
 
-`git config`
+---
 
-Example: `git config --global user.name "Your Name"`
+## **Git Config**
 
-`git config --global`
+`git config`: Configure user information for all local repositories or a specific one.
 
-Example: `git config --global user.mail "your.mail@example.com"`
+- **Example:** `git config --global user.name "Your Name"`
 
-## Creating a Repository
+`git config --global`: Set global configurations like username and email.
 
-`git init`: Initialize a git repository
+- **Example:** `git config --global user.email "your.email@example.com"`
 
-Example: `git init new-project`
+---
 
-`git clone`: Used to download existing code from a remote repository
+## **Creating a Repository**
 
-Example: `git clone https://github.com/user/repository.git`
+`git init`: Initialize a new Git repository.
 
-`git remote`
+- **Example:** `git init new-project`
 
-Example: `git remote add origin https://github.com/user/repository.git`
+`git clone`: Clone an existing repository from a remote source.
 
-## Making Changes
+- **Example:** `git clone https://github.com/user/repository.git`
 
-`git add`: Add files to the staging area
+`git remote`: Manage set of tracked repositories.
 
-Example: `git add .`
+- **Example:** `git remote add origin https://github.com/user/repository.git`
 
-`git status`: Used to check the state of the staging area, as well as the working directory
+---
 
-Example: `git status`
+## **Making Changes**
 
-`git commit`: Used to commit files (locally) on the repository
+`git add`: Add files to the staging area, preparing them for a commit.
 
-Example: `git commit -m "initial commit"`
+- **Example:** `git add .`
 
-`git log`: Used to view the entire commit history
+`git status`: Show the status of the working directory and staging area.
 
-Example: `git log --oneline`
+- **Example:** `git status`
 
-`git diff`: Display the differences between files in two commits or between a commit and your current repository
+`git commit`: Record changes to the repository with a message.
 
-Example: `git diff HEAD~1 HEAD`
+- **Example:** `git commit -m "initial commit"`
 
-## Undoing Changes
+`git log`: Show the commit history for the repository.
 
-`git reset`: Undo the changes to the local files and restore the last commit
+- **Example:** `git log --oneline`
 
-Example: `git reset HEAD~1`
+`git diff`: Show changes between commits, branches, or working directories.
 
-`git revert`
+- **Example:** `git diff HEAD~1 HEAD`
 
-Example: `git revert abc123`
+---
 
-`git clean`
+## **Undoing Changes**
 
-Example: `git clean -fd`
+`git reset`: Undo changes by moving the HEAD to a previous commit.
 
-## Repote Repositories
+- **Example:** `git reset HEAD~1`
 
-`git fetch`
+`git revert`: Create a new commit that undoes the changes of a previous commit.
 
-Example: `git fetch origin`
+- **Example:** `git revert abc123`
 
-`git pull`: Used to pull down all the updates from a remote repository
+`git clean`: Remove untracked files from the working directory.
 
-Example: `git pull origin main`
+- **Example:** `git clean -fd`
 
-`git push`: Used to save all commits to the remote repository
+---
 
-Example: `git push origin feature-branch`
+## **Remote Repositories**
 
-`git remote`
+`git fetch`: Download objects and refs from another repository.
 
-Example: `git remote -v`
+- **Example:** `git fetch origin`
 
-## Branching and Merging
+`git pull`: Fetch and integrate changes from the remote repository to the local branch.
 
-`git branch`: Used to list all the local branches on the machine
+- **Example:** `git pull origin main`
 
-`git branch <branch-name>`: Used to create a new branch locally
+`git push`: Upload local commits to the remote repository.
 
-Example: `git branch new-feature`
+- **Example:** `git push origin feature-branch`
 
-`git branch -d <branch-name>`: Used to delete a branch
+`git remote -v`: List all remote connections along with their URLs.
 
-Example: `git branch -d feature`
+- **Example:** `git remote -v`
 
-`git branch -m <branch-name>`: Used to rename the current branch
+---
 
-Example: `git branch -m new-feature`
+## **Branching and Merging**
 
-`git checkout`: Used to switch between branches
+`git branch`: List, create, or delete branches.
 
-Example: `git checkout -b bugfix-123`
+- **Example (List branches):** `git branch`
+- **Example (Create branch):** `git branch new-feature`
+- **Example (Delete branch):** `git branch -d feature`
+- **Example (Rename branch):** `git branch -m new-feature`
 
-`git merge`: Merges the provided branches on the machine
+`git checkout`: Switch branches or restore working tree files.
 
-Example: `git merge feature-branch`
+- **Example (Switch branches):** `git checkout new-feature`
+- **Example (Create and switch):** `git checkout -b bugfix-123`
 
-`git rebase`
+`git merge`: Join two or more development histories together.
 
-Example: `git rebase main`
+- **Example:** `git merge feature-branch`
 
-## Git Flow
+`git rebase`: Reapply commits on top of another base tip.
 
-`git flow init`
+- **Example:** `git rebase main`
 
-Example: `git flow init -d`
+---
 
-`git flow feature`
+## **Git Flow**
 
-Example: `git flow feature start new-feature`
+`git flow init`: Initialize a git-flow repository, setting up the required branches.
 
-`git flow release`
+- **Example:** `git flow init -d`
 
-Example: `git flow release start v1.0.0`
+`git flow feature`: Manage feature branches.
 
-`git flow hotfix`
+- **Example:** `git flow feature start new-feature`
 
-Example: `git flow hotfix start bugfix-123`
+`git flow release`: Manage release branches.
 
-`git flow support`
+- **Example:** `git flow release start v1.0.0`
 
-Example: `git flow support start v1.5`
+`git flow hotfix`: Manage hotfix branches.
+
+- **Example:** `git flow hotfix start bugfix-123`
+
+`git flow support`: Manage support branches.
+
+- **Example:** `git flow support start v1.5`
+
+---
+
+This cheat sheet should help you get started with Git or refresh your knowledge of its commands. Happy coding!
