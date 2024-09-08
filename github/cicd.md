@@ -2,51 +2,52 @@
 
 ## Continuous Integration (CI):
 
-Continuous Integration is a development practice where developers frequently merge their code changes into a shared repository, often several times a day. Each merge triggers an automated build and testing process, allowing teams to detect and address issues early in the development cycle. The primary goal of CI is to ensure that new code integrates seamlessly with the existing codebase, preventing integration problems and reducing the time it takes to deliver features or fixes.
+Continuous Integration (CI) is a development practice where developers frequently merge their code changes into a shared repository, often several times a day. Each merge **triggers an automated build and testing process**, allowing teams to detect and address issues early in the development cycle. The primary goal of CI is to ensure that new code integrates seamlessly with the existing codebase, preventing integration problems and reducing the time it takes to deliver features or fixes.
 
 ## Continuous Delivery (CD):
 
-Continuous Delivery is an extension of Continuous Integration that focuses on automatically preparing code for release. After code changes pass the CI process, they are automatically staged for deployment, often to a testing or staging environment. CD ensures that the code is always in a deployable state, enabling teams to release updates to production at any time with minimal manual intervention. The emphasis is on automating the entire software release process, from integration to deployment readiness.
+Continuous Delivery (CD) is an extension of Continuous Integration that focuses on ensuring that code is always in a deployable state. After code changes pass the CI process, they are automatically **staged** for **deployment**, often to a testing or staging environment. CD enables teams to release updates to production at any time with minimal manual intervention, by automating the entire software release process from integration to deployment readiness.
 
 ## Continuous Deployment:
 
-Continuous Deployment takes Continuous Delivery a step further by automatically deploying every change that passes the CI and CD processes directly to production. In this approach, there are no manual deployment steps, and every successful build that passes all tests is released to users. Continuous Deployment ensures that new features, improvements, and bug fixes reach users as quickly as possible, providing a continuous flow of updates without the need for human intervention in the deployment process.
+Continuous Deployment takes Continuous Delivery one step further by automatically deploying every change that passes the CI and CD processes directly to **production**. In this approach, there are no manual deployment steps, and every successful build that passes all tests is automatically released to users. Continuous Deployment ensures that new features, improvements, and bug fixes reach users as quickly as possible, providing a continuous flow of updates without human intervention in the deployment process.
+**The difference between continuous delivery and continuous deployment is the presence of a manual approval to update to production**
 
+## CI vs CD: What is the Difference Between Continuous Integration and Continuous Delivery?
 
-## CI vs CD: Difference between Continuous Integration and Continuous Delivery?
+### Continuous Integration (CI):
 
-### What is Continuous Integration (CI)
+CI, as its name suggests, is the practice of frequently integrating code changes into a shared repository. Every integration triggers automated builds and tests to quickly identify issues. This process reduces the complexity and cost of fixing problems later in the development cycle, ensuring that code is always in a good state and preventing the "works on my machine" issue.
 
-CI, as its name suggests, is a process that occurs prior to a build in which code is tested. It demands developers to regularly integrate or merge code into a shared repository. It often results in greater long-term cost savings, as it is more expensive to repair problems in high-level design uncovered later in the process. It is regarded as a superior method of developing software since it minimises the number of defects when features are merged and resolves the issue of “works on my machine.”
+### Continuous Delivery (CD):
 
-### What is Continuous Delivery (CD)
+CD automates the software release process, enabling teams to deliver new code to users as quickly and safely as possible. After passing the CI stage, the code is automatically prepared for production. The key here is automation—ensuring the code can be deployed at any time with confidence.
 
-CD, as its name implies, is a technique that leverages automation to expedite the delivery of new code. Teams build, test, and release software as quickly as feasible in short cycles. It generally assures that any modification made is releasable by automating the entire release process. One is capable of delivering to production. The most significant aspect is the thoroughness of checks.
+### Key Differences Between Continuous Integration and Continuous Delivery:
 
-### The Difference Between Continuous Integration and Continuous Delivery
+While CI and CD often work in sync, their scope is different:
 
-Since CI and CD often function in sync, it is easy to be confused as to the scope of their activities. The below diagram can help in obtaining a clear understanding of what this does.
+- **Continuous Integration** focuses on integrating code frequently into a shared repository, followed by automated testing to catch defects early.
+- **Continuous Delivery** focuses on automating the release pipeline so that any change passing through CI is ready for deployment.
 
-Since CI and CD often function in sync, it is easy to be confused as to the scope of their activities. The below diagram can help in obtaining a clear understanding of what this does.
+Sometimes, CD is also used to refer to Continuous Deployment. Continuous Deployment is similar to Continuous Delivery, but the releases happen automatically without manual approval.
 
-Sometimes CD is also used to refer to Continuous Deployment. Continuous deployment is similar to continuous delivery with the exception that releases occur automatically.
-
-While not the direct scope of this article, the difference between Continuous Integration and Deployment is shown as below.
-
-The main points of difference between Continuous Integration and Continuous Delivery are tabulated as below:
+Here's a table summarizing the differences between Continuous Integration and Continuous Delivery:
 
 | **Continuous Integration** | **Continuous Delivery** |
 |----------------------------|-------------------------|
-| It is the integration of code into the mainstream code base. | It is the process of testing, staging, and deploying code that occurs after code integration in order to deliver app updates to users. |
-| It is specifically built to incorporate code changes into a shared repository on a regular basis. | It is specifically built to incorporate code changes into a shared repository on a regular basis. |
-| Its primary objective is to offer timely feedback so that any flaw in the code base may be quickly discovered and fixed. | Its primary objective is to ensure that the code base is always deployable to the production environment. |
-| It employs automation to quickly discover issues and validate the accuracy of new code prior to integration. | Automation is used to expedite the release of new code. |
-| It is crucial because it enables greater transparency and foresight in the software development and delivery process. | That is crucial because it makes our release processes as efficient and repeatable as feasible. |
-| It often decreases expenses, instils confidence, ensures a consistent construction process, mitigates hazards, improves team communication, etc. | It generally reduces risk, delivers software with fewer problems, responds rapidly to market conditions, and releases new products more regularly, among other benefits. |
-| It offers additional benefits to developers because it enables code to be tested automatically and integrated continually with the code of other developers and the current code base. | As soon as code is accepted successfully in the CI stage and its logical functionality can be tested, it is made available to business users. |
-| This procedure is less complicated and less expensive than CD. | This procedure is more complicated and expensive than CI. |
+| Integrates code into the shared repository frequently. | Automates the process after CI, preparing code for deployment to production. |
+| Main focus is on catching issues early by frequently testing integrated code. | Main focus is ensuring code is always in a deployable state. |
+| Uses automation to quickly detect issues before they become larger problems. | Uses automation to release code to staging or production environments. |
+| Reduces integration issues, speeds up the development process, and improves code quality. | Ensures quick, safe releases, reduces risks, and delivers new features faster. |
+| Less complex and costly compared to CD. | More complex, involving deployment automation and multiple environments (e.g., staging, production). |
 
+### Conclusion:
+
+- **CI** ensures code integration is smooth and defect-free.
+- **CD** ensures code is always ready for deployment.
+- **Continuous Deployment** goes a step further and automates the entire process, pushing code into production with no manual intervention.
 
 ### Bibliography
 
-- https://www.atlassian.com/continuous-delivery/continuous-integration
+- [Atlassian: Continuous Integration and Continuous Delivery](https://www.atlassian.com/continuous-delivery/continuous-integration)
