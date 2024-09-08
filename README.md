@@ -24,6 +24,8 @@ Learn how to implement continuous integration and continuous deployment (CI/CD) 
 
 - [Git Commands](./github/git_commands.md)
 - [CI/CD](./github/cicd.md)
+  - [Sample Python Pipeline](./github/ci_pipeline_python.md)
+  - [Sample Typescript Pipeline](/github/ci_pipeline_typescript.md)
 
 ## Linux
 
