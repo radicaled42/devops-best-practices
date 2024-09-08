@@ -14,9 +14,10 @@ Explore best practices, troubleshooting techniques, and detailed Dockerfile inst
 
 Gain insights into best practices for Kubernetes, along with troubleshooting tips to handle deployment issues effectively.
 
+- [General Kubernetes Troubleshooting Steps](./kubernetes/general_troubleshooting.md)
+  - [Troubleshoot a deployment](./kubernetes/troubleshooting_deployments.md)
 - [Kubernetes Components](./kubernetes/kubernetes_components.md)
 - [Best Practices](./kubernetes/best_practices.md)
-- [Troubleshoot a deployment](./kubernetes/troubleshooting_deployments.md)
 
 ## Github CI/CD
 
