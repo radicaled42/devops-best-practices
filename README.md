@@ -45,6 +45,7 @@ Discover a range of useful Linux commands that can help improve your efficiency 
   <img src="./files/docker.png" alt="Docker" width="150" />
   <img src="./files/kubernetes.png" alt="Kubernetes" width="150" />
   <img src="./files/github.png" alt="GitHub" width="150" />
+  <img src="./files/4923041_aws_icon.png" alt="AWS" width="150" />
 </p>
 
 ----
