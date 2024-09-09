@@ -48,6 +48,7 @@ Best practices and tips for managing infrastructure using code.
 
   - [Terraform Best Practices](./iac/terraform_best_practices.md)
   - [Ansible Playbooks](./iac/ansible_playbooks.md)
+  - [Ansible Command Line](./iac/ansible_command_line.md)
   - [Jenkins Best Practices](./iac/jenkins_best_practices.md)
 
 ## Misc
