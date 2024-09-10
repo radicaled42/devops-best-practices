@@ -54,6 +54,7 @@ Best practices and tips for managing infrastructure using code.
 ## Misc
 
 - [SDLC](./AWS/sdlc.md)
+- [Devops and Cloud Certifications](./misc/devops_cloud_certifications.md)
 
 ----
 ----
