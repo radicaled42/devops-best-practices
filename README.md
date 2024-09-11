@@ -30,6 +30,7 @@ Gain insights into best practices for Kubernetes, along with troubleshooting tip
   - [Troubleshoot a deployment](./kubernetes/troubleshooting_deployments.md)
 - [Kubernetes Components](./kubernetes/kubernetes_components.md)
 - [Best Practices](./kubernetes/best_practices.md)
+- [Kubernetes Resources](./kubernetes/kubernetes_resources.md)
 - [Kubernetes Security Best Practices](./kubernetes/kubernetes_security.md)
 - [Kubernetes Logging](./kubernetes/kubernetes_logging.md)
 - [Kubernetes Networking](./kubernetes/kubernetes_networking.md)
