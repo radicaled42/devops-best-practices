@@ -2,6 +2,15 @@
 
 This repository is a collection of essential tips, troubleshooting guides, and best practices for DevOps engineers. Whether you're working with Docker, Kubernetes, GitHub CI/CD, or Linux, this repo provides valuable insights to help streamline your workflow and enhance your productivity.
 
+## DevOps Essentials
+
+<p aling="center">
+  <img src="./files/devops-essentials.png" alt="DevOps Essentials" />
+</p>
+
+- https://sysxplore.com/
+- https://twitter.com/sysxplore/status/1831934837730767250
+
 ## Docker
 
 Explore best practices, troubleshooting techniques, and detailed Dockerfile instructions to optimize your containerized applications.
