@@ -30,11 +30,11 @@ Gain insights into best practices for Kubernetes, along with troubleshooting tip
 - [General Kubernetes Troubleshooting Steps](./kubernetes/general_troubleshooting.md)
   - [Troubleshoot a deployment](./kubernetes/troubleshooting_deployments.md)
 
-### Components
+#### Components
 - [Kubernetes Components](./kubernetes/kubernetes_components.md)
 - [Kubernetes Cheat Sheet](./kubernetes/kubernetes_cheat_sheet.md)
 
-### Security
+#### Security
 - [Kubernetes Security Best Practices](./kubernetes/kubernetes_security.md)
 
 #### Observability
