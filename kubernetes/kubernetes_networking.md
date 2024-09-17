@@ -93,3 +93,15 @@ These plugins provide Kubernetes networking features and can integrate with exte
 In this article, we’ve covered the fundamentals of Kubernetes networking, including its architecture, implementation, and key features. With this knowledge, you can better understand the networking processes in your cluster and how to configure them for different scenarios.
 
 Looking to enforce policies and guardrails in your Kubernetes environment? Check out **Spacelift**, our CI/CD-driven infrastructure-as-code management platform with support for Kubernetes environments. Spacelift helps you apply policies, approval flows, and rules to prevent misconfigurations, ensuring your Kubernetes Pods are network-isolated with Network Policies.
+
+| **Aspect**          | **CoreDNS**                                        | **kube-proxy**                                         |
+|---------------------|----------------------------------------------------|--------------------------------------------------------|
+| **Primary Function** | DNS resolution, service discovery                  | Traffic routing and load balancing                     |
+| **Scope**            | Resolves service names to IPs                      | Routes network traffic to pods based on service IPs    |
+| **Runs On**          | Usually runs as a deployment within the cluster    | Runs on each node in the cluster                       |
+| **Key Responsibility**| Service name-to-IP mapping                        | Network traffic forwarding, load balancing             |
+| **Type of Traffic**  | DNS queries                                        | Application traffic (HTTP, TCP, etc.)                  |
+| **Configurable via** | DNS plugins, Kubernetes API                        | iptables, IPVS, userspace                              |
+
+**Bibliography**:
+- https://spacelift.io/blog/kubernetes-networking
