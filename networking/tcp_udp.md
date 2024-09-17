@@ -18,13 +18,13 @@ Here are the main differences between TCP and UDP:
 
 ## Advantages of TCP
 
-Transmission control protocol (TCP) is the protocol to choose for maximum reliability and quality. It may not be the fastest, but it gets the job done right. Here are a few advantages of the TCP protocol:
+Transmission Control Protocol (TCP) is the protocol to choose for maximum reliability and quality. It may not be the fastest, but it gets the job done right. Here are a few advantages of the TCP protocol:
 
 - It sets up and maintains a connection between sender and receiver.
 - It operates independently of the operating system.
 - It supports many routing protocols.
 - It checks for errors, guaranteeing data arrives at its destination unaltered.
-- It confirms data arrival after delivery, or attempts to retransfer.
+- It confirms data arrival after delivery, or attempts to retransmit.
 - It’s able to send data in a particular sequence.
 - It optimizes the pace of data transmission based on the receiver.
 
@@ -60,8 +60,7 @@ While UDP provides the speed you need to live a comfortable digital life, UDP is
 - It’s connectionless, which makes data transfer unreliable.
 - There’s no system in place to acknowledge a successful data transfer.
 - There’s no way to know if data is delivered in its original state, or at all.
-- It has no error control, so it drops packets when errors are detected
+- It has no error control, so it drops packets when errors are detected.
 - In case of a data collision, routers will often drop UDP packets and favor TCP packets.
 - Multiple users accepting UDP data can cause congestion, and there’s no way to mitigate this.
 - It cannot sequence data, so data can arrive in any order or out of order.
-
