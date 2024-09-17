@@ -104,3 +104,6 @@ Here are some helpful Terraform tools:
 
 #### 20. Take Advantage of IDE Extensions
 For users of Visual Studio Code, the Terraform extension can speed up development and ensure code is properly formatted.
+
+**Bibliography**:
+- https://spacelift.io/blog/terraform-best-practices#terraform-specific-best-practices
