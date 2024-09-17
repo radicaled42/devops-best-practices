@@ -133,3 +133,6 @@ DNS records are like entries in a directory, each serving a different purpose to
 <p aling="center">
   <img src="./files/dns/how-dns-works.png" alt="How DNS Works" />
 </p>
+
+**Bibliography**:
+- https://x.com/SecurityTrybe/status/1835371157211451618
