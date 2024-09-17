@@ -41,6 +41,7 @@ Gain insights into best practices for Kubernetes, along with troubleshooting tip
 - [Kubernetes Logging](./kubernetes/kubernetes_logging.md)
 
 #### Networking
+- [How a DNS Works](./networking/how_dns_works.md)
 - [Kubernetes Networking](./kubernetes/kubernetes_networking.md)
 
 #### Misc
