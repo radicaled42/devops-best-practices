@@ -234,3 +234,4 @@ handlers:
 
 **Bibliography**:
 - https://www.simplilearn.com/what-is-ansible-playbook-article
+- https://spacelift.io/blog/ansible-tutorial#intro-to-ansible-playbooks
