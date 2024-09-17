@@ -26,6 +26,10 @@ Explore best practices, troubleshooting techniques, and detailed Dockerfile inst
 
 Gain insights into best practices for Kubernetes, along with troubleshooting tips to handle deployment issues effectively.
 
+#### Installation and Upgrade
+- [Standard Kubernetes Installation](./)
+- [HA Kuberenetes Installation](./kubernetes/ha_kubernetes_installation.md)
+
 #### Troubleshooting
 - [General Kubernetes Troubleshooting Steps](./kubernetes/general_troubleshooting.md)
   - [Troubleshoot a deployment](./kubernetes/troubleshooting_deployments.md)
@@ -71,7 +75,9 @@ Discover a range of useful Linux commands that can help improve your efficiency 
 
 Best practices and tips for managing infrastructure using code.
 
-  - [Terraform Best Practices](./iac/terraform_best_practices.md)
+  - [Best Practices for IaC](./iac/best_practices.md)
+    - [Terraform Best Practices](./iac/terraform_best_practices.md)
+  - [Terraform Key Conepts](./iac/terraform_key_concepts.md)
   - [Ansible Playbooks](./iac/ansible_playbooks.md)
   - [Ansible Command Line](./iac/ansible_command_line.md)
   - [Jenkins Best Practices](./iac/jenkins_best_practices.md)
