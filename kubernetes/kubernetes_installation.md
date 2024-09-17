@@ -179,3 +179,6 @@ Check if the Nginx pod is running and the service is accessible:
 
 2. Upgrading Kubernetes:
 You can upgrade the Kubernetes cluster components (`kubeadm`, `kubelet`, `kubectl`) following the official Kubernetes upgrade documentation.
+
+**Bibliography**:
+- https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
