@@ -43,6 +43,7 @@ Gain insights into best practices for Kubernetes, along with troubleshooting tip
 #### Networking
 - [How a DNS Works](./networking/how_dns_works.md)
 - [Kubernetes Networking](./kubernetes/kubernetes_networking.md)
+- [TCP/UPD](./networking/tcp_udp.md)
 
 #### Misc
 - [Best Practices](./kubernetes/best_practices.md)
