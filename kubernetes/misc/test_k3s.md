@@ -29,7 +29,7 @@ kind: Ingress
 metadata:
   name: hello-world
   annotations:
-    kubernetes.io/ingress.class: "traefik"
+    ingressClassName: "traefik"
 spec:
   rules:
   - http:
