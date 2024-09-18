@@ -112,6 +112,10 @@ $ curl localhost:80
 
 And in my case, I could test out the external routing and make sure that same response was making it through. Yay!
 
+## Exposing multiple services
+
+- https://github.com/k3d-io/k3d/issues/1435#issuecomment-2075724585
+
 Bibliography:
 - https://www.jeffgeerling.com/blog/2022/quick-hello-world-http-deployment-testing-k3s-and-traefik
 - https://rob-mengert.medium.com/understanding-k3d-ingress-b94697638f3b
