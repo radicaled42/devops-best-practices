@@ -37,6 +37,7 @@ Gain insights into best practices for Kubernetes, along with troubleshooting tip
 #### Components
 - [Kubernetes Components](./kubernetes/kubernetes_components.md)
 - [Kubernetes Cheat Sheet](./kubernetes/kubernetes_cheat_sheet.md)
+- [ReplicaSet vs Deployments vs StatefulSet vs DemonSet](./kubernetes/rs_dp_ds_ss.md)
 
 #### Security
 - [Kubernetes Security Best Practices](./kubernetes/kubernetes_security.md)
@@ -61,8 +62,9 @@ Learn how to implement continuous integration and continuous deployment (CI/CD) 
 
 - [Git Commands](./github/git_commands.md)
 - [CI/CD](./github/cicd.md)
-  - [Sample Python Pipeline](./github/ci_pipeline_python.md)
-  - [Sample Typescript Pipeline](/github/ci_pipeline_typescript.md)
+  - [Sample Python Pipeline](./github/piplines_sample/ci_pipeline_python.md)
+  - [Sample Typescript Pipeline](/github/piplines_sample/ci_pipeline_typescript.md)
+  - [Sample AWS CD Pipeline](/github/pipelines_samples/cd_pipeline_aws.md)
 - [CI/CD Security](./github/cicd_security.md)
 
 ## Linux

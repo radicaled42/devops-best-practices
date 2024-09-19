@@ -114,6 +114,25 @@ Git is a powerful version control system used to track changes in your code, col
 
 - **Example:** `git rebase main`
 
+`git rebase -i`: interactive Git command that allows you to pick commits
+
+- **Example:** `git rebase -i <base-commit>`
+
+Workflow:
+
+  1. When you run git rebase -i <base-commit>, Git will open your default text editor with a list of commits above the <base-commit>.
+  2. Each commit will be prefixed with a command, typically pick, which indicates that the commit will be applied as-is.
+  3. You can change the command (e.g., squash, edit, reword, drop) to modify how the commits are applied during the rebase.
+
+Common Commands:
+
+  - pick: Use the commit as-is.
+  - reword: Use the commit, but modify its commit message.
+  - edit: Pause the rebase to allow you to make changes before continuing.
+  - squash: Combine this commit with the previous one, keeping both commit messages.
+  - fixup: Like squash, but only keep the previous commit’s message.
+  - drop: Discard the commit entirely.
+
 ---
 
 ## **Git Flow**
