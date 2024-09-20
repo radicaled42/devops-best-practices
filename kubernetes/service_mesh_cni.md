@@ -6,85 +6,75 @@
 
 ## Kubernetes Networks
 
-It is first important to understand that there are four networks in a Kubernetes cluster:
+It is important to understand that there are four types of networks in a Kubernetes cluster:
 
-1. **Host network**
+1. **Host Network**
 
-This is the network that connects all the hosts that are running as Kubernetes Nodes. IP addresses allocated within this network are defined within your Virtual Private Cloud (VPC).
+   This network connects all the hosts running as Kubernetes Nodes. IP addresses allocated within this network are defined within your Virtual Private Cloud (VPC).
 
-2. **Cluster network**
+2. **Cluster Network**
 
-This is the network that seamlessly connects all the Pods together. Kubernetes requires that all Pods can talk to one another without any Network Address Transaction (NAT).
-
-Effectively this makes Pods work like they are virtual machines sitting on a virtual network. The virtual network is a subnet shared amongst all Pods.
+   This network connects all the Pods together seamlessly. Kubernetes requires that all Pods can communicate with one another without any Network Address Translation (NAT). 
+   
+   Effectively, this makes Pods behave like virtual machines on a virtual network, sharing a subnet among all Pods.
 
 3. **Service Network**
 
-Pods are ephemeral. This means that, at any moment, A Pod may be terminated and be rescheduled on the same or different Node. Even if it is on the same Node, it may be given a different IP address. Additional Pods may also be scheduled.
+   Since Pods are ephemeral, they can be terminated and rescheduled at any time, potentially on different Nodes with different IP addresses. To ensure consistent access, Kubernetes introduces the concept of a Service.
+   
+   A Service provides persistent access even if the underlying Pods change. Each Service is assigned an IP address from the Service Network when created.
 
-Because of this, Kubernetes introduces the idea of a Service. A Service is persistent and allows a client to access the Service even though the underlying Pods that provide the Service may change.
+4. **Container Network**
 
-For this reason, each Service is given an IP address from the Service Network when it is created.
-
-4. **Container network**
-
-When you have multiple containers in a Pod, they share the same network. They can be thought of as processes running in a virtual machine, which is the Pod. This means they all have access to the same, Pod IP address.
-
-Like all processes running in a host, they can talk to each other via the localhost loopback network. As they share the same IP address, they must operate on different ports.
+   When multiple containers exist in a Pod, they share the same network, similar to how processes share the same network on a virtual machine. Containers in the same Pod have access to the same Pod IP address and can communicate via the localhost loopback network, but they must operate on different ports.
 
 ## Container Network Interface (CNI)
 
-Kubernetes requires that all of its Pods can talk to each other over the Cluster network. This requires each Node that is added to the cluster and each Pod that is scheduled, must be configured to implement the cluster subnet.
+Kubernetes requires all Pods to communicate over the Cluster network. This means that each Node and Pod must be configured to implement the cluster subnet. This is where the **Container Network Interface (CNI)** comes in.
 
-This is where the Container Network Interface (CNI) comes in.
+When Kubernetes schedules a Pod, the **kubelet** (Kubernetes agent) on the Node calls the CNI, which assigns an IP address and configures network interfaces to ensure the required connectivity.
 
-When you install Kubernetes on a Node, you install a small application called kubelet. This acts as an Kubernetes agent on the Node, doing whatever it is told by the Kubernetes controller, including scheduling Pods.
-
-When kubelet schedules a Pod, it need to set up the networking including it’s IP address. It does this by calling the CNI, which then assigns an IP address and configures the network interfaces within the Pod to ensure there is the connectivity that Kubernetes requires.
-
-The CNI is an interface. The implementation of the interface is provided as a ‘plugin’ to Kubernetes. You will see this called a CNI plugin.
-
-There are a number of CNI plugins, including Flannel and Calico. They implement the CNI in different ways within the Pod. They also provide different layers of security within the cluster.
+The CNI itself is an interface, and its implementation is provided by a plugin, such as **Flannel** or **Calico**. These plugins implement the CNI in different ways and provide various layers of security within the cluster.
 
 ## Service Mesh
 
-A Service Mesh is a layer that sits on the Cluster Network. Instead of providing open access to any Pod from any Pod, it is designed to secure the communications between specific Pods.
+A **Service Mesh** is a layer that sits on top of the Cluster Network. It is designed to secure and manage communications between specific Pods, rather than allowing open access between all Pods.
 
-A Service Mesh operates as a sidecar to each main application container. As such, it provides network connectivity to your main application container as a network proxy. The connection between the proxy and the main application is by way of the localhost network.
+A Service Mesh operates as a **sidecar** to the main application container, providing network connectivity as a proxy. Communication between the proxy and the application occurs over the localhost network.
 
-## Do I need a Service Mesh and a CNI Plugin?
+## Do I Need Both a Service Mesh and a CNI Plugin?
 
-A CNI is require by kubernetes to work, but a Service Mesh its not. But is really nice to have.
+- A **CNI plugin** is **required** for Kubernetes to function as it ensures connectivity between Pods on the cluster network.
+- A **Service Mesh** is **optional** but can be beneficial.
 
-### Need for CNI plugin
+### Need for CNI Plugin
 
-Kubernetes requires that you implement the CNI interface so that it has connectivity between the Pods over the cluster network. It is a mandatory requirement.
+Kubernetes requires the CNI interface for connectivity between Pods across the cluster network. This is mandatory.
 
 ### Need for Service Mesh
 
-The Service Mesh runs on top of the cluster network and is optional.
+A Service Mesh is optional but provides several advantages:
 
-The benefits of running a Service Mesh are:
+- **Security**: Implements routing rules and mutual Transport Layer Security (mTLS) between Pods.
+- **Load Balancing**: Defines how traffic is distributed between Pods.
+- **Monitoring**: Provides metrics and logs on connections and traffic.
+- **Separation of Concerns**: Abstracts network management from the application, allowing for consistent implementation and making the application technology-agnostic. It also supports namespace separation.
+- **Reliability**: Enables automatic retries for failed requests.
 
-- Security … the Service Mesh can implement routing rules as well as mutual Transport Layer Security (mTLS) between Pods
-- Load balancing … define the distribution of traffic between Pods
-- Monitoring … provide metrics and logs on connections and traffic
-- Separation of concerns … allows network management to be abstracted from the application, making implementation consistent and technology agnostic for the application, including separation by namespace
-- Reliability … requests that fail can be retried automatically
-
-All these benefits make for a convincing reason for implementing a Service Mesh on top of the CNI plugin.
+These benefits make a strong case for implementing a Service Mesh on top of the CNI plugin.
 
 ### Options for Service Mesh
 
-There are several technologies for the Service Mesh, including:
+There are several technologies available for implementing a Service Mesh:
 
-    Istio
-    Linkerd
-    Cilium
-    Consul Connect
-    Cloud specific solutions, eg: GCP Anthos, AWS App Mesh, Azure Open Service Mesh (deprecated)
+- **Istio**
+- **Linkerd**
+- **Cilium**
+- **Consul Connect**
+- **Cloud-Specific Solutions** (e.g., GCP Anthos, AWS App Mesh, Azure Open Service Mesh - deprecated)
 
-Many of these are now charging for the service. Istio is still a free open-source solution but can be complicated to set up and debug.
+Many of these services are now paid solutions. Istio remains a free, open-source option but can be complex to set up and debug.
+
 
 **Bibliography**:
 - https://medium.com/@martin.hodges/why-do-i-need-a-service-mesh-as-well-as-a-cni-829b492398b7
