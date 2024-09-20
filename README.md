@@ -4,7 +4,7 @@ This repository is a collection of essential tips, troubleshooting guides, and b
 
 ## DevOps Essentials
 
-<p aling="center">
+<p align="center">
   <img src="./files/devops-essentials.png" alt="DevOps Essentials" />
 </p>
 
@@ -38,6 +38,7 @@ Gain insights into best practices for Kubernetes, along with troubleshooting tip
 - [Kubernetes Components](./kubernetes/kubernetes_components.md)
 - [Kubernetes Cheat Sheet](./kubernetes/kubernetes_cheat_sheet.md)
 - [ReplicaSet vs Deployments vs StatefulSet vs DemonSet](./kubernetes/rs_dp_ds_ss.md)
+- [Service Mesh and CNI](./kubernetes/service_mesh_cni.md)
 
 #### Security
 - [Kubernetes Security Best Practices](./kubernetes/kubernetes_security.md)
