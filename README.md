@@ -50,6 +50,7 @@ Gain insights into best practices for Kubernetes, along with troubleshooting tip
 - [Best Practices](./kubernetes/best_practices.md)
 - [Kubernetes Plugins Resources](./kubernetes/kubernetes_resources.md)
 - [Kubernetes Performance Optimization](./kubernetes/kubernetes_performance.md)
+- [ArgoCD](./kubernetes/misc/argocd.md)
 
 ## Networking
 - [How a DNS Works](./networking/how_dns_works.md)
