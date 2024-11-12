@@ -1,45 +1,36 @@
-𝐖𝐡𝐚𝐭 𝐢𝐬 𝐀𝐫𝐠𝐨 𝐂𝐃?
+# What is Argo CD?
 
-Argo CD is a GitOps-based Continuous Delivery (CD) tool that simplifies the way you deploy applications on Kubernetes. It uses Git as the single source of truth to pull code and configurations into Kubernetes, automating your entire delivery pipeline.
+Argo CD is a GitOps-based Continuous Delivery (CD) tool that simplifies the deployment of applications on Kubernetes. It uses Git as the single source of truth to pull code and configurations into Kubernetes, automating the entire delivery pipeline.
 
-𝐖𝐡𝐚𝐭 𝐢𝐬 𝐂𝐨𝐧𝐭𝐢𝐧𝐮𝐨𝐮𝐬 𝐃𝐞𝐥𝐢𝐯𝐞𝐫𝐲 (𝐂𝐃)?
+## Challenges with Traditional CD in Kubernetes
 
-CD enables developers to continuously push code changes to production without manual intervention, speeding up release cycles. Tools like Jenkins help, but Kubernetes introduces complexities that make traditional CD tools struggle.
+1. **Tool Complexity**: You need tools like `kubectl` and Helm, adding extra operational work.
+2. **Access Control Headaches**: Managing Kubernetes credentials across clusters is time-consuming and increases security risks.
+3. **Scaling Woes**: As clusters grow, so does the need to reconfigure credentials for every team and application.
+4. **Limited Visibility**: Traditional CD tools lose sight of deployments after configuration is applied, making it hard to spot issues until they break something.
 
-𝐂𝐡𝐚𝐥𝐥𝐞𝐧𝐠𝐞𝐬 𝐰𝐢𝐭𝐡 𝐓𝐫𝐚𝐝𝐢𝐭𝐢𝐨𝐧𝐚𝐥 𝐂𝐃 𝐢𝐧 𝐊𝐮𝐛𝐞𝐫𝐧𝐞𝐭𝐞𝐬:
+## GitOps!
 
-1️. 𝑻𝒐𝒐𝒍 𝑪𝒐𝒎𝒑𝒍𝒆𝒙𝒊𝒕𝒚: You need tools like kubectl and helm, adding extra operational work.
+GitOps flips the script by using a **pull-based deployment model**. Instead of pushing code into the cluster, Argo CD **pulls** the latest updates from Git into Kubernetes, automatically syncing and deploying them. It’s more secure, more scalable, and easier to manage.
 
-2️. 𝑨𝒄𝒄𝒆𝒔𝒔 𝑪𝒐𝒏𝒕𝒓𝒐𝒍 𝑯𝒆𝒂𝒅𝒂𝒄𝒉𝒆𝒔: Managing Kubernetes credentials across clusters is time-consuming and increases security risks.
+## How Argo CD Works
 
-3️. 𝑺𝒄𝒂𝒍𝒊𝒏𝒈 𝑾𝒐𝒆𝒔: As clusters grow, so does the need to reconfigure credentials for every team and app.
+Unlike traditional CD tools like Jenkins, which sit outside the Kubernetes cluster, Argo CD operates inside the cluster. It continuously monitors your Git repository for changes, pulling updates and syncing them directly with your Kubernetes environment.
 
-4️. 𝑳𝒊𝒎𝒊𝒕𝒆𝒅 𝑽𝒊𝒔𝒊𝒃𝒊𝒍𝒊𝒕𝒚: Traditional CD tools lose sight of deployments after configuration is applied, making it hard to spot issues until they break something.
+Any drift? Argo CD spots it and auto-corrects to match the Git configuration.
 
-𝐄𝐧𝐭𝐞𝐫 𝐆𝐢𝐭𝐎𝐩𝐬!
+## Why Use Argo CD?
 
-GitOps flips the script by using a 𝑝𝑢𝑙𝑙-𝑏𝑎𝑠𝑒𝑑 deployment model. Instead of pushing code into the cluster, Argo CD 𝑝𝑢𝑙𝑙𝑠 the latest updates from Git into Kubernetes, automatically syncing and deploying them.
+1. **Enhanced Security**: Cluster credentials stay inside, reducing exposure.
+2. **Easy Scaling**: Argo CD effortlessly handles multiple clusters and teams.
+3. **Real-Time Visibility**: See deployment status in real-time with continuous syncing and monitoring.
 
-It’s more secure, more scalable, and easier to manage.
+Git serves as the single source of truth, ensuring consistency across environments.
 
-𝐇𝐨𝐰 𝐀𝐫𝐠𝐨 𝐂𝐃 𝐖𝐨𝐫𝐤𝐬:
+## Pull vs. Push
 
-Unlike traditional CD tools like Jenkins, which sit outside the Kubernetes cluster, Argo CD operates inside the cluster. It continuously monitors your Git repo for changes, pulling updates and syncing them directly with your Kubernetes environment.
-
-Any drift? Argo CD spots it and auto-corrects to match the Git config.
-
-𝐖𝐡𝐲 𝐔𝐬𝐞 𝐀𝐫𝐠𝐨 𝐂𝐃?
-
-1. 𝑬𝒏𝒉𝒂𝒏𝒄𝒆𝒅 𝑺𝒆𝒄𝒖𝒓𝒊𝒕𝒚: Cluster credentials stay inside, reducing exposure.
-2. 𝑬𝒂𝒔𝒚 𝑺𝒄𝒂𝒍𝒊𝒏𝒈: Argo CD effortlessly handles multiple clusters and teams.
-3. 𝑹𝒆𝒂𝒍-𝑻𝒊𝒎𝒆 𝑽𝒊𝒔𝒊𝒃𝒊𝒍𝒊𝒕𝒚: See deployment status in real time with continuous syncing and monitoring.
-
-Git is the single source of truth, ensuring consistency across environments. 
-
-𝐏𝐮𝐥𝐥 𝐯𝐬. 𝐏𝐮𝐬𝐡: 
-
-Instead of pushing changes manually, Argo CD pulls verified updates from Git, reducing operational burden and improving overall security. Plus, it keeps the cluster in sync at all times, ensuring what’s running matches what’s committed.
+Instead of manually pushing changes, Argo CD pulls verified updates from Git, reducing operational burden and improving security. It keeps the cluster in sync at all times, ensuring what’s running matches what’s committed.
 
 <p align="center">
-  <img src="./files/argocd/GX6UBZyXoAAeJxv.jpg" alt="ArgoCD" />
+  <img src="../files/argocd/GX6UBZyXoAAeJxv.jpg" alt="ArgoCD" />
 </p>
