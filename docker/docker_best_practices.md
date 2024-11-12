@@ -44,6 +44,37 @@ Image tags are mutable, meaning a publisher can update a tag to point to a new i
 
 When you check in a change to source control or create a pull request, use GitHub Actions or another CI/CD pipeline to automatically build and tag a Docker image and test it.
 
+### Use official images
+
+### Specify the version of the base image
+
+### Cleanup cache and temp files
+
+### Minimize Layers
+
+Combine RUN instructions to reduce the image layers
+
+## DONT'S
+
+### Hardcode Credential
+
+### Full ROOT access
+
+### Multi-purpose containers
+
+### Omit Entrypoint
+
+### Include build scripts
+
+Avoid including build scripts in the image; use multi-stage builds
+
+### Unspecified Ports
+
+Don't leave ports unspecified if they are required
+
+### Ignore Cache
+
 ### Bibliography
 
 - https://docs.docker.com/build/building/best-practices
+- https://twitter.com/codek_tv/status/1855974383497760965
