@@ -92,8 +92,14 @@ Best practices and tips for managing infrastructure using code.
 
 - [SDLC](./AWS/sdlc.md)
 - [Devops and Cloud Certifications](./misc/devops_cloud_certifications.md)
+- [Observability](./misc/observability.md)
 
 ----
+
+## DevOps Roadmap
+
+https://roadmap.sh/devops
+
 ----
 
 <p float="left">
