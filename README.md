@@ -101,6 +101,10 @@ Best practices and tips for managing infrastructure using code.
 
 https://roadmap.sh/devops
 
+### Training Plan
+
+- [1 year training plan](./1_year_learning_plan.md)
+
 ----
 
 <p float="left">
